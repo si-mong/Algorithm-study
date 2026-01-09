@@ -5,15 +5,11 @@
 
 int main(){
 
-    int N=0, K=0, idx=0, cnt=0;
+    int N=0, K=0, idx=0, cnt=0, loop = 0;
     int* check;
 
-    int loop = 0;
-
     scanf("%d %d", &N, &K);
-
     check = calloc(N+1, sizeof(int));
-
     printf("<");
 
     while(cnt != N){
@@ -22,9 +18,8 @@ int main(){
         loop = 0;
 
         while(loop < K){
-            //printf("loop: %d", loop);
 
-                    // 인덱스 조절
+            // 인덱스 조절
             if(idx >= N)
                 idx -= N;
 
@@ -35,8 +30,6 @@ int main(){
             else{
                 idx++;
             }
-
-
         }
 
         // 인덱스 조절
@@ -49,10 +42,10 @@ int main(){
             cnt++;
 
             if(cnt < N)
-            {
                 printf(", ");
-            }
-
+            
+            else 
+                break;
         }
     }
     printf(">");
