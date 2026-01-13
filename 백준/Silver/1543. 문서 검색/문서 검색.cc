@@ -20,8 +20,6 @@ int main(){
         }
         else    // 없다면 걍 0
             break;
-        if(ss <= 0)
-            break;
     }
     cout << cnt;
     return 0;
