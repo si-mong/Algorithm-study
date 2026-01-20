@@ -16,7 +16,6 @@ int main(){
         cin >> m;
         num.push_back(m);
     }
-    // cout <<"입력 완료" <<endl;
     for(int i : num){
         // cout << "현재 요소 i: " << i << ", 누적 push 횟수: " << psn <<endl;
     
