@@ -1,4 +1,4 @@
-// 2529: 부등호 -> long long 형을 알아보자
+// 2529: 부등호 -> long long 형
 #include <iostream>
 #include <vector>
 #include <climits> // LONG_MAX / LONG_LONG_MAX 는 이거 필요 없음
