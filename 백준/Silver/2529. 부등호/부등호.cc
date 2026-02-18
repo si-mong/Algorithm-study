@@ -1,16 +1,17 @@
+// 2529: 부등호 -> long long 형을 알아보자
 #include <iostream>
 #include <vector>
+#include <climits> // LONG_MAX / LONG_LONG_MAX 는 이거 필요 없음
 using namespace std;
 
 string s, pm, mins, maxs;
 vector <bool> vis(10, false);
 int N;
-long long minV = __LONG_LONG_MAX__, maxV = -10;
+long minV = LONG_MAX, maxV = -10;
 
 void perm(int depth){
-    // cout << "==현재 depth: " << depth << "==" << endl;
     if(depth == N+1){
-        long long result = stoll(pm);
+        long result = stoll(pm);
         if(minV > result){
             minV = result;
             mins = pm;
@@ -22,33 +23,22 @@ void perm(int depth){
         return;
     }
     for(int i=0; i<10; i++){
-        //0번째 짜리면 0은 되면 안됨
-        //숫자 중복되면 안됨
-        // cout << "선택한 숫자: " << i << endl;
 
-        if(vis[i]){
-            // cout << "이미 방문했으니 건너띄겠음" <<endl;
+        //숫자 중복되면 안됨
+        if(vis[i])
             continue;
-        }
 
         // 부등식이 안맞을 때 무시
         if(depth > 0){
-            // cout << "부등식 조사를 진행합니다.\n";
             char a = s[depth-1];
             if(a == '<'){
-                // cout << pm[depth-1]-'0' << " < " << i <<endl;
-                if(!(pm[depth-1]-'0' < i)){
-                    // cout << "부등호가 안맞음\n";
+                if(!(pm[depth-1]-'0' < i))
                     continue;
-                }
             }
             else{
                 // ir가 증가해도 부등식이 안맞음
-                if(!(pm[depth-1]-'0' > i)){
-                    // cout << pm[depth-1]-'0' << " > " << i <<endl;
-                    // cout << "부등호가 계속 안맞을 거임!" <<endl;
-                    return;
-                }
+                if(!(pm[depth-1]-'0' > i))
+                    return;    
             }
         }
 
